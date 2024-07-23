@@ -23,9 +23,8 @@ function App() {
       <div className="App">
         <header className="App-header">
           <p>
-            Edit <code>src/App.js</code> and save to reload. <MathJax inline>{"$x$"}</MathJax>
+            Edit <code>src/App.js</code> and save to reload.
           </p>
-          <MathJax>{"\\(x)\\"}</MathJax>
           <a
             className="App-link"
             href="https://reactjs.org"
