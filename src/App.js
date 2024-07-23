@@ -23,7 +23,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <p>
-            Edit <code>src/App.js</code> and save to reload. <MathJax inline dynamic>$x$</MathJax>
+            Edit <code>src/App.js</code> and save to reload. <MathJax inline>{"$x$"}</MathJax>
           </p>
           <a
             className="App-link"
