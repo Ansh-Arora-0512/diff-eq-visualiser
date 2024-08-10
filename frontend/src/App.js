@@ -1,21 +1,10 @@
 import './App.css';
 import React from 'react';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
+import { addStyles } from 'react-mathquill';
+import Keyboard from './components/Keyboard';
 
-const config = {
-  loader: { load: ["[tex]/html"] },
-  tex: {
-    packages: { "[+]": ["html"] },
-    inlineMath: [
-      ["$", "$"],
-      ["\\(", "\\)"]
-    ],
-    displayMath: [
-      ["$$", "$$"],
-      ["\\[", "\\]"]
-    ]
-  }
-};
+addStyles();
 
 function App() {
   return (
@@ -23,7 +12,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <p>
-            Edit <code>src/App.js</code> and save to reload. <MathJax inline dynamic>$x$</MathJax>
+            Edit <code>src/App.js</code> and save to reload.
           </p>
           <a
             className="App-link"
@@ -34,6 +23,7 @@ function App() {
             Learn React
           </a>
         </header>
+        <Keyboard></Keyboard>
       </div>
     </MathJaxContext>
   );
