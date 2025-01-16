@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useRef, useState } from 'react';
 
-const EqContext = createContext();
+export const EqContext = createContext();
 
 export function useEq() {
   return useContext(EqContext);
@@ -22,12 +22,21 @@ export function EqProvider({ children }) {
 
   function splitBranches(tree, ...operators) {
     const operator = operators[0];
-    let new_tree, tree_flag, len, prev, char;
+    let new_tree
+    let tree_flag
+    let len
+    let prev
+    let char
+    let new_branch
+    let branch
 
     for (let branch_index = tree.length - 1; branch >= 0; branch--) {
       branch = tree[branch_index];
       if (typeof branch === "string") {
-        new_tree = [], tree_flag = false, len = branch.length, prev = len;
+        new_tree = []
+        tree_flag = false
+        len = branch.length
+        prev = len;
         for (let i = len - 1; i >= 0; i--) {
           char = branch[i];
           if (operators.includes(char)) {
@@ -45,9 +54,13 @@ export function EqProvider({ children }) {
       }
     }
 
-    const expr = tree[0], operands = [];
+    const expr = tree[0]
+    const operands = [];
     let operand_index = tree.length - 1;
-    new_tree = [], tree_flag = false, len = expr.length, prev = len;
+    new_tree = []
+    tree_flag = false
+    len = expr.length
+    prev = len;
     for (let i = len - 1; i >= 0; i--) {
       char = expr[i];
       if (operators.includes(char) && (i > len - 5 || expr.slice(i + 1, i + 5) != "{}{}")) {
@@ -65,8 +78,14 @@ export function EqProvider({ children }) {
   }
   
   function generateTree() {
-    const brace_stack = [], tree = [];
-    let expr, brace_pairs, len, operands, last_is_num, last_is_alpha;
+    const brace_stack = []
+    const tree = []
+    let expr
+    let brace_pairs
+    let len
+    let operands
+    let last_is_num
+    let last_is_alpha;
 
     for (let i = 0; i < eq.length; i++) {
       switch (eq[i]) {
@@ -82,10 +101,6 @@ export function EqProvider({ children }) {
           operands = len > 2;
           for (let j = 0; j < len; j+=2) {
             expr += eq.slice(brace_pairs[j], brace_pairs[j+1]);
-          }
-          
-          for (let c = 0; c < expr.length; c++) {
-            if 
           }
 
           if (operands) {

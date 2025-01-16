@@ -1,36 +1,35 @@
 import { React } from 'react';
 import { EditableMathField, StaticMathField } from 'react-mathquill';
 import { useEq } from './EqContext';
+import { MathJax } from 'better-react-mathjax';
 
-function EqInput() {
-  const { mathFieldRef, writeLatex, eq, setEq } = useEq();
-  const blacklisted = ["\\", " ", "{", "}"];
-  const braces = ["(", "["];
+// function EqInput() {
+//   const { mathFieldRef, writeLatex, eq, setEq } = useEq();
+//   const blacklisted = ["\\", " ", "{", "}"];
+//   const braces = ["(", "["];
 
-  function keyPress(mathField, event) {
-    const key = event.key;
-    prev_is_char = false;
-    if (blacklisted.includes(key)) {
-      event.preventDefault();
-    }
-    if (braces.includes(key)) {
-      mathField.cmd(key);
-      writeLatex("{}", false, 1);
-      event.preventDefault;
-    }
-  }
+//   function keyPress(mathField, event) {
+//     const key = event.key;
+//     if (blacklisted.includes(key)) {
+//       event.preventDefault();
+//     }
+//     if (braces.includes(key)) {
+//       mathField.cmd(key);
+//       writeLatex("{}", false, 1);
+//       event.preventDefault;
+//     }
+//     return (
+//       <EditableMathField
+//         ref={mathFieldRef}
+//         latex={eq}
+//         onKeyDown={keyPress}
+//         onChange={(mathField) => { setEq(mathField.latex()) }}
+//       />
+//     )
+//   }
+// }
 
-  return (
-    <EditableMathField
-      ref={mathFieldRef}
-      latex={eq}
-      onKeyDown={keyPress}
-      onChange={(mathField)=>{setEq(mathField.latex())}}
-    />
-  )
-}
-
-function CalcKey({ expr, isCmd=false, lcount=0, display=undefined }) {
+function CalcKey({ expr, isCmd = false, lcount = 0, display = undefined }) {
   const { mathFieldRef, writeLatex, eq, setEq } = useEq();
 
   return (
@@ -70,7 +69,7 @@ function Keyboard() {
         </tr>
       </table>
       <table id="Numbers">
-      <tr>
+        <tr>
           <td><button><MathJax hideUntilTypeset='first'>{"$ 7 $"}</MathJax></button></td>
           <td><button><MathJax hideUntilTypeset='first'>{"$ 8 $"}</MathJax></button></td>
           <td><button><MathJax hideUntilTypeset='first'>{"$ 9 $"}</MathJax></button></td>

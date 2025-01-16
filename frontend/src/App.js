@@ -3,6 +3,7 @@ import React from 'react';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import { addStyles } from 'react-mathquill';
 import Keyboard from './components/Keyboard';
+import { EqContext } from './components/EqContext'
 
 addStyles();
 
