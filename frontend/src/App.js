@@ -8,7 +8,7 @@ addStyles();
 
 function App() {
   return (
-    <MathJaxContext>
+    <EqContext>
       <div className="App">
         <header className="App-header">
           <p>
@@ -25,7 +25,7 @@ function App() {
         </header>
         <Keyboard></Keyboard>
       </div>
-    </MathJaxContext>
+    </EqContext>
   );
 }
 
